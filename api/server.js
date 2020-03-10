@@ -6,10 +6,14 @@ const server = express();
 server.use(express.json());
 
 server.get("/", (req, res) => {
-  res.send(`
-    <h2>Lambda Hubs API</h>
-    <p>Welcome to the Lambda Hubs API</p>
-  `);
+  const query = req.query;
+
+  console.log(query);
+  res.status(200).json(query);
+  // res.send(`
+  //   <h2>Lambda Hubs API</h>
+  //   <p>Welcome to the Lambda Hubs API</p>
+  // `);
 });
 
 // router handles endpoints that begin with /api/hubs
